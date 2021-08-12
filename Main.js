@@ -1,11 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const Main = () => {
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>App loaded!</Text>
+            <View style={styles.header}>
+                <Text style={styles.headerText}>Pizza Calculator</Text>
+            </View>
+            <View style={styles.body}>
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.buttonText}> &gt; Start &lt; </Text>
+                </TouchableOpacity>
+            </View>
+            <View style={styles.footer}>
+
+            </View>
         </View>
 
     );
@@ -15,13 +25,42 @@ const Main = () => {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
+      backgroundColor: 'white'
     },
-    text: {
-        fontSize: 32,
-        color: 'blue'      
+    header: {
+        backgroundColor: 'green',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderBottomWidth: 10,
+        borderBottomColor: '#00ee00',
+        paddingTop: 20,
+        height: '20%'
+    },
+    headerText: {
+        color: '#FFD700',
+        fontSize: 36,
+        padding: 26,
+        fontWeight: "500",
+    },
+    body: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '70%'
+    },
+    button: {
+        padding: 15,
+        backgroundColor: 'grey',
+        borderRadius: 10
+    },
+    buttonText: {
+        fontSize: 40,
+        fontWeight: '500'
+    },
+    footer: {
+        backgroundColor: 'red',
+        borderTopWidth: 10,
+        borderTopColor: '#cc0000',
+        height: '10%'    
     }
   });
   
