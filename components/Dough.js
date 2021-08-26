@@ -14,6 +14,11 @@ const Dough = () => {
                 onChange = {value => setDoughWeight(value)}
                 />
             </View>
+            <TouchableOpacity>
+                <Text>Next &gt;&gt;</Text>
+            </TouchableOpacity>
         </View>
     )
 }
+
+export default Dough;
