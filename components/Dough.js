@@ -2,20 +2,21 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import NumericInput from 'react-native-numeric-input';
 
-const Dough = () => {
+const Dough = ({setStartPressed}) => {
     const [doughWeight, setDoughWeight] = useState(1000);
     return (
         <View style={styles.container}>
             <View style={styles.header}></View>
             <View style={styles.body}>
-                <Text>
-                Weight of dough?
+                <Text style={styles.labelText}>
+                Weight of dough (g)?
                 </Text>
                 <NumericInput value = {doughWeight} 
                 onChange = {value => setDoughWeight(value)}
                 />
-                <TouchableOpacity>
-                <Text>Next &gt;&gt;</Text>
+                <TouchableOpacity style={styles.button}
+                onPress = {() => setStartPressed(false)}>
+                <Text style={styles.buttonText}>Next &gt;&gt;</Text>
             </TouchableOpacity>
             </View>
             <View style={styles.footer}></View>
@@ -37,15 +38,15 @@ const styles = StyleSheet.create({
         paddingTop: 20,
         height: '20%'
     },
-    headerText: {
-        color: '#FFD700',
+    labelText: {
+        color: '#777',
         fontSize: 36,
         padding: 26,
         fontWeight: "500",
     },
     body: {
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-around',
         height: '62%'
     },
     button: {
@@ -54,8 +55,9 @@ const styles = StyleSheet.create({
         borderRadius: 20
     },
     buttonText: {
-        fontSize: 40,
-        fontWeight: '500'
+        fontSize: 32,
+        fontWeight: '500',
+        color: '#FFD700'
     },
     footer: {
         backgroundColor: 'red',

@@ -8,7 +8,7 @@ const Home = () => {
 
     if (startPressed) {
         return(
-            <Dough />
+            <Dough setStartPressed = {setStartPressed}/>
         )
     }
 
@@ -63,7 +63,8 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         fontSize: 40,
-        fontWeight: '500'
+        fontWeight: '500',
+        color: '#FFD700'
     },
     footer: {
         backgroundColor: 'red',
