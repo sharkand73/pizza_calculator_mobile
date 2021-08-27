@@ -1,36 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import Dough from './Dough';
-import Hydration from './Hydration';
+import NumericInput from 'react-native-numeric-input';
 
-const Home = () => {
-    const [startPressed, setStartPressed] = useState(false);
-
-    if (startPressed) {
-        return(
-            <Hydration setStartPressed = {setStartPressed}/>
-        )
-    }
-
+const Hydration = ({setStartPressed}) => {
+    const [hydration, setHydration] = useState(60);
     return (
         <View style={styles.container}>
-            <View style={styles.header}>
-                <Text style={styles.headerText}>Pizza Calculator</Text>
-            </View>
+            <View style={styles.header}></View>
             <View style={styles.body}>
-                <TouchableOpacity style={styles.button} onPress = {() => setStartPressed(true)}>
-                    <Text style={styles.buttonText}> &gt; Start &lt; </Text>
-                </TouchableOpacity>
+                <Text style={styles.labelText}>
+                Hydration (%)?
+                </Text>
+                <NumericInput value = {hydration} 
+                onChange = {value => setHydration(value)}
+                rounded 
+                rightButtonBackgroundColor='#aaa'
+                leftButtonBackgroundColor='#aaa'
+                />
+                <TouchableOpacity style={styles.button}
+                onPress = {() => setStartPressed(false)}>
+                <Text style={styles.buttonText}>Next &gt;&gt;</Text>
+            </TouchableOpacity>
             </View>
-            <View style={styles.footer}>
-
-            </View>
+            <View style={styles.footer}></View>
         </View>
-
-    );
+    )
 }
-
 
 const styles = StyleSheet.create({
     container: {
@@ -46,15 +41,15 @@ const styles = StyleSheet.create({
         paddingTop: 20,
         height: '20%'
     },
-    headerText: {
-        color: '#FFD700',
+    labelText: {
+        color: '#777',
         fontSize: 36,
         padding: 26,
         fontWeight: "500",
     },
     body: {
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-around',
         height: '62%'
     },
     button: {
@@ -63,7 +58,7 @@ const styles = StyleSheet.create({
         borderRadius: 20
     },
     buttonText: {
-        fontSize: 40,
+        fontSize: 32,
         fontWeight: '500',
         color: '#FFD700'
     },
@@ -74,5 +69,5 @@ const styles = StyleSheet.create({
         height: '18%'    
     }
   });
-  
-  export default Home;
+
+export default Hydration;
