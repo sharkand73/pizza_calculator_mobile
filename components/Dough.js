@@ -13,6 +13,9 @@ const Dough = ({setStartPressed}) => {
                 </Text>
                 <NumericInput value = {doughWeight} 
                 onChange = {value => setDoughWeight(value)}
+                rounded 
+                rightButtonBackgroundColor='#aaa'
+                leftButtonBackgroundColor='#aaa'
                 />
                 <TouchableOpacity style={styles.button}
                 onPress = {() => setStartPressed(false)}>
