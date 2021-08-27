@@ -17,10 +17,16 @@ const Hydration = ({setStartPressed}) => {
                 rightButtonBackgroundColor='#aaa'
                 leftButtonBackgroundColor='#aaa'
                 />
-                <TouchableOpacity style={styles.button}
-                onPress = {() => setStartPressed(false)}>
-                <Text style={styles.buttonText}>Next &gt;&gt;</Text>
-            </TouchableOpacity>
+                <View style={styles.buttons}>
+                    <TouchableOpacity style={styles.button}
+                    onPress = {() => setStartPressed(false)}>
+                        <Text style={styles.buttonText}>&lt;&lt; Back</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button}
+                    onPress = {() => setStartPressed(false)}>
+                        <Text style={styles.buttonText}>Next &gt;&gt;</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
             <View style={styles.footer}></View>
         </View>
@@ -29,8 +35,8 @@ const Hydration = ({setStartPressed}) => {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: 'white'
+        flex: 1,
+        backgroundColor: 'white'
     },
     header: {
         backgroundColor: 'green',
@@ -52,13 +58,21 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         height: '62%'
     },
+    buttons: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
     button: {
-        padding: 15,
+        paddingLeft: 15,
+        paddingRight: 15,
+        paddingTop: 7,
+        paddingBottom: 7,
         backgroundColor: 'grey',
-        borderRadius: 20
+        borderRadius: 20,
+        margin: 30
     },
     buttonText: {
-        fontSize: 32,
+        fontSize: 26,
         fontWeight: '500',
         color: '#FFD700'
     },
