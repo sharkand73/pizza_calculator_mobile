@@ -7,16 +7,18 @@ import Home from './Home';
 
 const Main = () => {
     const [startPressed, setStartPressed] = useState(false);
-
-    if (startPressed) {
-        return(
-            <Hydration setStartPressed = {setStartPressed}/>
-        )
+    const [currentPage, setCurrentPage] = useState('home');
+    const pages = {
+        home: <Home setCurrentPage={setCurrentPage} />,
+        dough: <Dough setCurrentPage={setCurrentPage} />,
+        hydration: <Hydration setCurrentPage={setCurrentPage} />
     }
 
-    return (
-        <Home setStartPressed = {setStartPressed} />
 
+    return (
+        <>
+        {pages[currentPage]}
+        </>
     );
 }
 

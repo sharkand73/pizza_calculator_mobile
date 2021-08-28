@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import NumericInput from 'react-native-numeric-input';
 
-const Dough = ({setStartPressed}) => {
+const Dough = ({setCurrentPage}) => {
     const [doughWeight, setDoughWeight] = useState(1000);
     return (
         <View style={styles.container}>
@@ -18,7 +18,7 @@ const Dough = ({setStartPressed}) => {
                 leftButtonBackgroundColor='#aaa'
                 />
                 <TouchableOpacity style={styles.button}
-                onPress = {() => setStartPressed(false)}>
+                onPress = {() => setCurrentPage('hydration')}>
                 <Text style={styles.buttonText}>Next &gt;&gt;</Text>
             </TouchableOpacity>
             </View>

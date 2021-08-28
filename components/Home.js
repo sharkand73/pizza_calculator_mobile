@@ -3,14 +3,14 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 
-const Home = ({startPressed, setStartPressed}) => {
+const Home = ({setCurrentPage}) => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
                 <Text style={styles.headerText}>Pizza Calculator</Text>
             </View>
             <View style={styles.body}>
-                <TouchableOpacity style={styles.button} onPress = {() => setStartPressed(true)}>
+                <TouchableOpacity style={styles.button} onPress = {() => setCurrentPage('dough')}>
                     <Text style={styles.buttonText}> &gt; Start &lt; </Text>
                 </TouchableOpacity>
             </View>
