@@ -1,18 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import Dough from './Dough';
-import Hydration from './Hydration';
 
-const Home = () => {
-    const [startPressed, setStartPressed] = useState(false);
 
-    if (startPressed) {
-        return(
-            <Hydration setStartPressed = {setStartPressed}/>
-        )
-    }
-
+const Home = ({startPressed, setStartPressed}) => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -27,8 +18,7 @@ const Home = () => {
 
             </View>
         </View>
-
-    );
+    )
 }
 
 

@@ -1,22 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import Dough from './Dough';
+import Hydration from './Hydration';
+import Home from './Home';
 
 const Main = () => {
-    return (
-        <View style={styles.container}>
-            <View style={styles.header}>
-                <Text style={styles.headerText}>Pizza Calculator</Text>
-            </View>
-            <View style={styles.body}>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}> &gt; Start &lt; </Text>
-                </TouchableOpacity>
-            </View>
-            <View style={styles.footer}>
+    const [startPressed, setStartPressed] = useState(false);
 
-            </View>
-        </View>
+    if (startPressed) {
+        return(
+            <Hydration setStartPressed = {setStartPressed}/>
+        )
+    }
+
+    return (
+        <Home setStartPressed = {setStartPressed} />
 
     );
 }
@@ -54,7 +53,8 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         fontSize: 40,
-        fontWeight: '500'
+        fontWeight: '500',
+        color: '#FFD700'
     },
     footer: {
         backgroundColor: 'red',
