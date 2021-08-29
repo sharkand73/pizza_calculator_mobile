@@ -2,8 +2,23 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import NumericInput from 'react-native-numeric-input';
 
-const Hydration = ({setCurrentPage}) => {
-    const [hydration, setHydration] = useState(60);
+const Hydration = ({setCurrentPage, values, handleChange}) => {
+    const [hydration, setHydration] = useState(values.hydration);
+
+    const onChange = (input) => {
+        setHydration(input);
+    }
+
+    const nextPage = () => {
+        handleChange('hydration', hydration);
+        setCurrentPage('home');
+    }
+
+    const previousPage = () => {
+        handleChange('hydration', hydration);
+        setCurrentPage('dough');
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.header}></View>
@@ -19,11 +34,11 @@ const Hydration = ({setCurrentPage}) => {
                 />
                 <View style={styles.buttons}>
                     <TouchableOpacity style={styles.button}
-                    onPress = {() => setCurrentPage('dough')}>
+                    onPress = {previousPage}>
                         <Text style={styles.buttonText}>&lt;&lt; Back</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.button}
-                    onPress = {() => setCurrentPage('home')}>
+                    onPress = {nextPage}>
                         <Text style={styles.buttonText}>Next &gt;&gt;</Text>
                     </TouchableOpacity>
                 </View>
