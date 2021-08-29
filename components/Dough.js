@@ -5,10 +5,6 @@ import NumericInput from 'react-native-numeric-input';
 const Dough = ({setCurrentPage, values, handleChange}) => {
     const [doughWeight, setDoughWeight] = useState(values.doughWeight);
 
-    const onChange = (input) => {
-        setDoughWeight(input);
-    }
-
     const nextPage = () => {
         handleChange('doughWeight', doughWeight);
         setCurrentPage('hydration');
@@ -22,7 +18,7 @@ const Dough = ({setCurrentPage, values, handleChange}) => {
                 Weight of dough (g)?
                 </Text>
                 <NumericInput value = {doughWeight} 
-                onChange = {onChange}
+                onChange = {value => setDoughWeight(value)}
                 rounded 
                 rightButtonBackgroundColor='#aaa'
                 leftButtonBackgroundColor='#aaa'

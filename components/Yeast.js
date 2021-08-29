@@ -2,18 +2,17 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import NumericInput from 'react-native-numeric-input';
 
-const Hydration = ({setCurrentPage, values, handleChange}) => {
-    const [hydration, setHydration] = useState(values.hydration);
-
+const Yeast = ({setCurrentPage, values, handleChange}) => {
+    const [yeast, setYeast] = useState(values.yeast);
 
     const nextPage = () => {
-        handleChange('hydration', hydration);
-        setCurrentPage('yeast');
+        handleChange('yeast', yeast);
+        setCurrentPage('home');
     }
 
     const previousPage = () => {
-        handleChange('hydration', hydration);
-        setCurrentPage('dough');
+        handleChange('yeast', yeast);
+        setCurrentPage('hydration');
     }
 
     return (
@@ -21,10 +20,10 @@ const Hydration = ({setCurrentPage, values, handleChange}) => {
             <View style={styles.header}></View>
             <View style={styles.body}>
                 <Text style={styles.labelText}>
-                Hydration (%)?
+                Yeast (%)?
                 </Text>
-                <NumericInput value = {hydration} 
-                onChange = {value => setHydration(value)}
+                <NumericInput value = {yeast} 
+                onChange = {value => setYeast(value)}
                 rounded 
                 rightButtonBackgroundColor='#aaa'
                 leftButtonBackgroundColor='#aaa'
@@ -96,4 +95,4 @@ const styles = StyleSheet.create({
     }
   });
 
-export default Hydration;
+export default Yeast;
