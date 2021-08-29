@@ -25,6 +25,8 @@ const Hydration = ({setCurrentPage, values, handleChange}) => {
                 </Text>
                 <NumericInput value = {hydration} 
                 onChange = {value => setHydration(value)}
+                minValue = {55}
+                maxValue = {90}
                 rounded 
                 rightButtonBackgroundColor='#aaa'
                 leftButtonBackgroundColor='#aaa'

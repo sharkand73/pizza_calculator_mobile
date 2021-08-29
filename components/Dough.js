@@ -19,6 +19,8 @@ const Dough = ({setCurrentPage, values, handleChange}) => {
                 </Text>
                 <NumericInput value = {doughWeight} 
                 onChange = {value => setDoughWeight(value)}
+                minValue = {150}
+                maxValue = {10000}
                 rounded 
                 rightButtonBackgroundColor='#aaa'
                 leftButtonBackgroundColor='#aaa'
@@ -59,12 +61,16 @@ const styles = StyleSheet.create({
         height: '62%'
     },
     button: {
-        padding: 15,
+        paddingLeft: 15,
+        paddingRight: 15,
+        paddingTop: 7,
+        paddingBottom: 7,
         backgroundColor: 'grey',
-        borderRadius: 20
+        borderRadius: 20,
+        margin: 30
     },
     buttonText: {
-        fontSize: 32,
+        fontSize: 26,
         fontWeight: '500',
         color: '#FFD700'
     },

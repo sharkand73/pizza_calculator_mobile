@@ -24,7 +24,10 @@ const Yeast = ({setCurrentPage, values, handleChange}) => {
                 </Text>
                 <NumericInput value = {yeast} 
                 onChange = {value => setYeast(value)}
+                minValue = {0.1}
                 rounded 
+                valueType = 'real'
+                step = {0.1}
                 rightButtonBackgroundColor='#aaa'
                 leftButtonBackgroundColor='#aaa'
                 />
