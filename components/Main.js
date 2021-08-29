@@ -9,13 +9,15 @@ import Salt from './Salt';
 import Oil from './Oil';
 
 const Main = () => {
-    const [values, setValues] = useState({
+    const defaultValues = {
         doughWeight: 1000,
         hydration: 60,
         yeast: 2.0,
         salt: 2.5,
         oil: 4.0
-    })
+    }
+
+    const [values, setValues] = useState(defaultValues);
     const [currentPage, setCurrentPage] = useState('home');
 
     const handleChange = function(key, value){
@@ -23,6 +25,10 @@ const Main = () => {
         tempValues[key] = value;
         setValues[tempValues];
     } 
+
+    const resetValues = () => {
+        setValues(defaultValues);
+    }
 
     const pages = {
         home: <Home setCurrentPage={setCurrentPage} />,
