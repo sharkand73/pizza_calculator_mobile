@@ -3,7 +3,17 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import NumericInput from 'react-native-numeric-input';
 
 const Dough = ({setCurrentPage, values, handleChange}) => {
-    const [doughWeight, setDoughWeight] = useState(1000);
+    const [doughWeight, setDoughWeight] = useState(values.doughWeight);
+
+    const onChange = (input) => {
+        setDoughWeight(input);
+    }
+
+    const nextPage = () => {
+        handleChange('doughWeight', doughWeight);
+        setCurrentPage('hydration');
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.header}></View>
@@ -11,14 +21,14 @@ const Dough = ({setCurrentPage, values, handleChange}) => {
                 <Text style={styles.labelText}>
                 Weight of dough (g)?
                 </Text>
-                <NumericInput value = {values.doughWeight} 
-                onChange = {input => handleChange('doughWeight', input)}
+                <NumericInput value = {doughWeight} 
+                onChange = {onChange}
                 rounded 
                 rightButtonBackgroundColor='#aaa'
                 leftButtonBackgroundColor='#aaa'
                 />
                 <TouchableOpacity style={styles.button}
-                onPress = {() => setCurrentPage('hydration')}>
+                onPress = {nextPage}>
                 <Text style={styles.buttonText}>Next &gt;&gt;</Text>
             </TouchableOpacity>
             </View>
