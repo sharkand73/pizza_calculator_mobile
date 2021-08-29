@@ -7,7 +7,7 @@ const Yeast = ({setCurrentPage, values, handleChange}) => {
 
     const nextPage = () => {
         handleChange('yeast', yeast);
-        setCurrentPage('home');
+        setCurrentPage('salt');
     }
 
     const previousPage = () => {
