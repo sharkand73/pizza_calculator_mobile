@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import NumericInput from 'react-native-numeric-input';
 
-const Dough = ({setCurrentPage}) => {
+const Dough = ({setCurrentPage, values, handleChange}) => {
     const [doughWeight, setDoughWeight] = useState(1000);
     return (
         <View style={styles.container}>
@@ -11,8 +11,8 @@ const Dough = ({setCurrentPage}) => {
                 <Text style={styles.labelText}>
                 Weight of dough (g)?
                 </Text>
-                <NumericInput value = {doughWeight} 
-                onChange = {value => setDoughWeight(value)}
+                <NumericInput value = {values.doughWeight} 
+                onChange = {input => handleChange('doughWeight', input)}
                 rounded 
                 rightButtonBackgroundColor='#aaa'
                 leftButtonBackgroundColor='#aaa'

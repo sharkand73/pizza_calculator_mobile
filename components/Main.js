@@ -6,14 +6,26 @@ import Hydration from './Hydration';
 import Home from './Home';
 
 const Main = () => {
-    const [startPressed, setStartPressed] = useState(false);
+    const [values, setValues] = useState({
+        doughWeight: 1000,
+        hydration: 60,
+        yeast: 2,
+        salt: 2.5,
+        oil: 4
+    })
     const [currentPage, setCurrentPage] = useState('home');
+
+    const handleChange = function(key, value){
+        const tempValues = values;
+        tempValues[key] = value;
+        setValues[tempValues];
+    } 
+
     const pages = {
         home: <Home setCurrentPage={setCurrentPage} />,
-        dough: <Dough setCurrentPage={setCurrentPage} />,
-        hydration: <Hydration setCurrentPage={setCurrentPage} />
+        dough: <Dough setCurrentPage={setCurrentPage} values={values} handleChange={handleChange} />,
+        hydration: <Hydration setCurrentPage={setCurrentPage} values={values} handleChange={handleChange} />
     }
-
 
     return (
         <>
