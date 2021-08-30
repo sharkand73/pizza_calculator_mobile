@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import NumericInput from 'react-native-numeric-input';
+import calculateWeights from '../helpers/functions';
 
 const Results = ({setCurrentPage, values, resetValues}) => {
+
+    const results = calculateWeights(values);
+
+
 
     const nextPage = () => {
         resetValues();
@@ -10,26 +14,20 @@ const Results = ({setCurrentPage, values, resetValues}) => {
     }
 
     const previousPage = () => {
-        handleChange('yeast', yeast);
-        setCurrentPage('hydration');
+        setCurrentPage('oil');
     }
 
     return (
         <View style={styles.container}>
             <View style={styles.header}></View>
             <View style={styles.body}>
-                <Text style={styles.labelText}>
-                Yeast (%)?
-                </Text>
-                <NumericInput value = {yeast} 
-                onChange = {value => setYeast(value)}
-                minValue = {0.1}
-                rounded 
-                valueType = 'real'
-                step = {0.1}
-                rightButtonBackgroundColor='#aaa'
-                leftButtonBackgroundColor='#aaa'
-                />
+                <View>
+                    <Text style={styles.labelText}>Flour: {results.flourWeight}g</Text>
+                    <Text style={styles.labelText}>Water: {results.waterWeight}g</Text>
+                    <Text style={styles.labelText}>Yeast: {results.yeastWeight}g</Text>
+                    <Text style={styles.labelText}>Salt: {results.saltWeight}g</Text>
+                    <Text style={styles.labelText}>Oil: {results.oilWeight}g</Text>
+                </View>
                 <View style={styles.buttons}>
                     <TouchableOpacity style={styles.button}
                     onPress = {previousPage}>
@@ -37,7 +35,7 @@ const Results = ({setCurrentPage, values, resetValues}) => {
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.button}
                     onPress = {nextPage}>
-                        <Text style={styles.buttonText}>Next &gt;&gt;</Text>
+                        <Text style={styles.buttonText}>Start Over &gt;&gt;</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -61,9 +59,9 @@ const styles = StyleSheet.create({
         height: '20%'
     },
     labelText: {
-        color: '#777',
+        color: 'black',
         fontSize: 36,
-        padding: 26,
+        padding: 2,
         fontWeight: "500",
     },
     body: {
@@ -97,4 +95,4 @@ const styles = StyleSheet.create({
     }
   });
 
-export default Yeast;
+export default Results;

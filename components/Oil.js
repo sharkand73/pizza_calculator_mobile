@@ -7,7 +7,7 @@ const Oil = ({setCurrentPage, values, handleChange}) => {
 
     const nextPage = () => {
         handleChange('oil', oil);
-        setCurrentPage('home');
+        setCurrentPage('results');
     }
 
     const previousPage = () => {

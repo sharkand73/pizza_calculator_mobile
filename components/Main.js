@@ -7,6 +7,7 @@ import Hydration from './Hydration';
 import Yeast from './Yeast';
 import Salt from './Salt';
 import Oil from './Oil';
+import Results from './Results';
 
 const Main = () => {
     const defaultValues = {
@@ -36,7 +37,8 @@ const Main = () => {
         hydration: <Hydration setCurrentPage={setCurrentPage} values={values} handleChange={handleChange} />,
         yeast: <Yeast setCurrentPage={setCurrentPage} values={values} handleChange={handleChange} />,
         salt: <Salt setCurrentPage={setCurrentPage} values={values} handleChange={handleChange} />,
-        oil: <Oil setCurrentPage={setCurrentPage} values={values} handleChange={handleChange} />
+        oil: <Oil setCurrentPage={setCurrentPage} values={values} handleChange={handleChange} />,
+        results: <Results setCurrentPage={setCurrentPage} values={values} resetValues={resetValues} />
     }
 
     return (
