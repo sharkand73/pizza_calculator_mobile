@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';    
+
 import calculateWeights from '../helpers/functions';
 
 const Results = ({setCurrentPage, values, resetValues}) => {
 
     const results = calculateWeights(values);
-
-
 
     const nextPage = () => {
         resetValues();
@@ -19,15 +18,31 @@ const Results = ({setCurrentPage, values, resetValues}) => {
 
     return (
         <View style={styles.container}>
-            <View style={styles.header}></View>
+            <View style={styles.header}>
+            <Text style={styles.headerText}>Results</Text>
+            </View>
             <View style={styles.body}>
-                <View>
-                    <Text style={styles.labelText}>Flour: {results.flourWeight}g</Text>
-                    <Text style={styles.labelText}>Water: {results.waterWeight}g</Text>
-                    <Text style={styles.labelText}>Yeast: {results.yeastWeight}g</Text>
-                    <Text style={styles.labelText}>Salt: {results.saltWeight}g</Text>
-                    <Text style={styles.labelText}>Oil: {results.oilWeight}g</Text>
+                <View style={styles.row}>
+                    <Text style={styles.col1}>Flour:</Text>
+                    <Text style={styles.col2}>{`${results.flourWeight}g`}</Text>
                 </View>
+                <View style={styles.row}>
+                    <Text style={styles.col1}>Water:</Text>
+                    <Text style={styles.col2}>{`${results.waterWeight}g`}</Text>
+                </View>
+                <View style={styles.row}>
+                    <Text style={styles.col1}>Yeast:</Text>
+                    <Text style={styles.col2}>{`${results.yeastWeight}g`}</Text>
+                </View>
+                <View style={styles.row}>
+                    <Text style={styles.col1}>Salt:</Text>
+                    <Text style={styles.col2}>{`${results.saltWeight}g`}</Text>
+                </View>
+                <View style={styles.row}>
+                    <Text style={styles.col1}>Oil:</Text>
+                    <Text style={styles.col2}>{`${results.oilWeight}g`}</Text>
+                </View>
+
                 <View style={styles.buttons}>
                     <TouchableOpacity style={styles.button}
                     onPress = {previousPage}>
@@ -60,8 +75,14 @@ const styles = StyleSheet.create({
     },
     labelText: {
         color: 'black',
-        fontSize: 36,
+        fontSize: 32,
         padding: 2,
+        fontWeight: "500",
+    },
+    headerText: {
+        color: '#FFD700',
+        fontSize: 36,
+        padding: 26,
         fontWeight: "500",
     },
     body: {
@@ -69,6 +90,27 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         height: '62%'
     },
+    row: {
+        marginLeft: '15%',
+        flexDirection: 'row'
+    },
+    col1: {
+        flex: 1,
+        color: 'grey',
+        fontSize: 32,
+        padding: 2,
+        fontWeight: "500"
+    },
+
+    col2: {
+        flex: 1,
+        color: 'grey',
+        fontSize: 32,
+        padding: 2,
+        fontWeight: "bold"
+    },
+
+
     buttons: {
         flexDirection: 'row',
         justifyContent: 'space-between'
